@@ -1,0 +1,128 @@
+<section id="app-scnarios" class="app-scnarios mat-typography mat-app-background" [class.scr-red-theme] = "useDarkTheme">
+
+    <mat-toolbar color="primary" class="mat-elevation-z10">
+
+        <mat-icon [class.show-toolbar-menu-button]="!showToolbarMenuButton" (click)="goBack()">arrow_back</mat-icon>&nbsp;&nbsp;&nbsp;
+
+        <span class="span-spacer span-spacer-app-title" [class.span-spacer-app-title-left]="showTitleLeft">{{title}}</span>
+
+        <mat-icon *ngIf="false" [class.show-toolbar-menu-button]="!showToolbarMenuButton" (click)="sidenav.toggle()">info</mat-icon>
+
+        <span class="span-spacer span-spacer-action-buttons span-spacer-align-right" [class.uk-hidden]="!showHeaderActionButtons">
+            <mat-icon class="mat-icon-sc mat-icon-sc-close" (click)="buttonCloseClicked()">close</mat-icon>
+            <mat-icon class="mat-icon-sc mat-icon-sc-done" [class.uk-hidden]="!showHeaderActionButtonsDone" (click)="buttonDoneClicked()">done</mat-icon>
+        </span>
+
+        <button [class.show-toolbar-menu-button]="showToolbarMenuButton" mat-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>menu</mat-icon>		
+        </button>
+
+    </mat-toolbar>
+    
+    <mat-menu #appMenu="matMenu">
+
+        <a mat-button routerLink="/dashboard" class="mat-menu-item" routerLinkActive="sc-active-link">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </a>
+        <a mat-button routerLink="/scenarios" class="mat-menu-item" routerLinkActive="sc-active-link">
+            <mat-icon>list</mat-icon>
+            <span>Scenarios</span>
+        </a>
+        <a mat-button routerLink="/admin-area" class="mat-menu-item" routerLinkActive="sc-active-link">
+            <mat-icon>settings_applications</mat-icon>
+            <span>Admin area</span>
+        </a>
+        <a mat-button routerLink="/user-profile" class="mat-menu-item" routerLinkActive="sc-active-link">
+            <mat-icon class="mat-18">account_circle</mat-icon>
+            <span>User Profile</span>
+        </a>
+        <a mat-button routerLink="/login" class="mat-menu-item" routerLinkActive="sc-active-link" [ngClass]="{'uk-hidden' : userLoggedIn}">
+            <mat-icon>vpn_key</mat-icon>
+            <span>Login</span>
+        </a>
+        <a mat-button class="mat-menu-item" routerLinkActive="sc-active-link" (click)="logout()" [ngClass]="{'uk-hidden' : !userLoggedIn}">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </a>
+        <a mat-button class="mat-menu-item" routerLink="/about" routerLinkActive="sc-active-link" >
+            <mat-icon>info_outline</mat-icon>
+            <span>About</span>
+        </a>
+
+        <a mat-button class="mat-menu-item" routerLink="/not-interested" routerLinkActive="sc-active-link" >
+            <mat-icon>not_interested</mat-icon>
+            <span>404</span>
+        </a>
+
+    </mat-menu>
+
+    <mat-sidenav-container>
+
+        <mat-sidenav mode="over" align="end" #sidenav mode="push">
+
+            <mat-tab-group>
+                    
+                <mat-tab label="Description">
+                
+                    <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+                    
+                        <mat-card>
+                            <mat-card-title>Name</mat-card-title>
+                            <mat-card-content>{{selectedModel?.name}}</mat-card-content>
+                        </mat-card>
+            
+                        <mat-card>
+                            <mat-card-title>Status</mat-card-title>
+                            <mat-card-content>{{selectedModel?.status}}</mat-card-content>
+                        </mat-card>
+            
+                        <mat-card>
+                            <mat-card-title>Bio</mat-card-title>
+                            <mat-card-content>{{selectedModel?.about}}</mat-card-content>
+                        </mat-card>
+            
+                    </section>
+            
+                </mat-tab>
+                    
+                <mat-tab label="Images">
+                        
+                    <section class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+                    
+                        <mat-card *ngFor="let message of selectedModel?.messages">
+                            <mat-card-subtitle>{{message.who}}</mat-card-subtitle>
+                            <mat-card-content>{{message.content}}</mat-card-content>
+                        </mat-card>
+                    
+                    </section>
+            
+                    <footer class="tab-actions">
+                        <button mat-fab color="accent" (click)="addMessage()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </footer>
+                    
+                </mat-tab>
+                
+                <mat-tab label="Spces"></mat-tab>
+                                
+            </mat-tab-group>
+
+            <footer class="tab-actions tab-actions-scr">
+                <mat-card>
+                    <mat-card-subtitle><mat-icon cololr="secondary" (click)="sidenav.close()">close</mat-icon></mat-card-subtitle>
+                </mat-card>
+            </footer>
+
+        </mat-sidenav>
+
+        <router-outlet></router-outlet>
+
+        <ng-template ad-host></ng-template>
+
+        <img *ngFor="let imSrc of imageSrcArr" [src]="imSrc" class="uk-hidden" >        
+
+    </mat-sidenav-container>
+
+</section>

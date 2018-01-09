@@ -1,0 +1,28 @@
+.uk-hidden,
+.hide-login-button {
+	display: none;
+}
+#app-login-container form input.mat-input-element {
+	text-indent: 5px;
+}
+input.ng-valid-[required], input.ng-valid.required  {
+	border-left: 5px solid #42A948; /* green */
+ }
+
+ input.ng-invalid-:not(form)  {
+		border-left: 5px solid #ff5722; /* red */
+}
+.warn {
+		color: #ff5722;
+}
+.g-login {
+	text-align: center
+}
+.g-login img {
+	width: 100px;
+	height: auto;
+	border: none;
+}
+#app-login-container .mat-card-content {
+	text-align: center;
+}

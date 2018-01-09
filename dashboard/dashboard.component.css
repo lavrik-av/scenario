@@ -1,0 +1,79 @@
+.app-dashboard-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+}
+.app-dashboard-container-icons-container {
+	margin: auto;
+	width: 37.5%;
+}
+.mat-fab.mat-icon-lg {
+    height: 96px;
+    width: 96px;
+}
+.mat-fab.mat-icon-lg .mat-button-wrapper {
+	padding: 0 !important;
+    height: auto !important;
+    width: auto !important;
+}
+.mat-icon-lg .mat-icon {
+    height: 96px;
+    width: 96px;
+	line-height: 96px;
+	font-size: 96px;	
+	color:#efefef;
+}
+#dashboard.mat-grid-list {
+	margin-top: 16px;
+}
+#dashboard .mat-grid-tile {
+	background-color: transparent;
+}
+.mat-grid-title-div {
+    width: 100%;
+	height: 100%;
+	display: flex;
+	background-color: #52c7b8;
+	color: #f1f1f1;
+}
+.mat-grid-title-div .mat-icon {
+	font-size: 64px;
+    margin: auto;
+    height: 64px;
+	width: 64px;
+	color: #efefef;
+}
+.app-dashboard-container-icons-container {
+	margin: auto;
+	width: 37.5%;
+}
+
+/* responsive styles */
+
+@media(max-width:768px) {
+
+	.app-dashboard-container-icons-container {
+		width: 50%;
+	}
+	
+}
+@media(max-width:736px) {
+
+	.app-dashboard-container-icons-container {
+		width: 38.5%;
+	}
+	
+}
+@media(max-width:667px) {
+}
+@media(max-width:600px) {
+}
+@media(max-width:415px) {
+
+	.app-dashboard-container-icons-container {
+		width: 65%;
+	}
+	
+}
+
+/* responsive styles */

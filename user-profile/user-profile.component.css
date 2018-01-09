@@ -1,0 +1,10 @@
+.google-user-img-container  {
+	text-align: center;
+}
+.google-user-img {
+	margin: 0;
+	padding: 0;
+	max-width: 96px;
+	border-radius: 50% 50%;
+	box-shadow: 3px 3px 10px 0px #666;
+}

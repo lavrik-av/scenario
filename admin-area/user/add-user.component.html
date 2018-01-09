@@ -1,0 +1,53 @@
+<div class="app-add-user-container">
+
+	<mat-card class="vh100" >
+
+		<mat-card-header>
+			<mat-card-title><h1 class="mat-headline">&nbsp;<span *ngIf="false">Add User</span></h1></mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+
+			<form #userForm="ngForm" [formGroup]="userFormReact">
+			
+				<mat-form-field>
+			
+					<span matPrefix></span>
+			
+					<input matInput formControlName="login" minlength="6" required placeholder="email">
+					
+					<mat-hint></mat-hint>
+
+					<mat-error *ngIf="false">Email not valid</mat-error>
+			
+				</mat-form-field>
+
+				<mat-form-field>
+				
+					<span matPrefix></span>
+				
+					<input matInput type="password" id="password" required minlength="6" maxlength="16" formControlName="password" placeholder="password">
+				
+					<mat-hint></mat-hint>
+				
+					<mat-error *ngIf="false">Password not valid</mat-error>
+				
+				</mat-form-field>
+			
+			</form>
+
+			{{ userFormReact.value | json }}
+			{{ userFormReact.status | json }}
+
+		</mat-card-content>
+
+		<mat-card-actions align="end">
+			<button mat-raised-button (click)="goBack()">Cancel</button>
+			<button mat-raised-button [hidden]="userForm.valid">Add User</button>
+			<button mat-raised-button (click)="addUser( user )" color="primary" [hidden]="!userForm.valid">Add User</button>
+
+		</mat-card-actions>
+
+	</mat-card>
+
+</div>

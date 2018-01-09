@@ -1,0 +1,45 @@
+.admin-dashboard-contaner {
+	margin: auto;
+	width: 220px;
+	height: 200px;
+	position: absolute;
+	top: 25%;
+	left: 0;
+	right: 0;
+}
+.app-admin-area-container .mat-card {
+	background-color: #f1f1f1;
+}
+.admin-dashboard-contaner-item {
+	position: absolute;
+	max-width: 100px;
+}
+.admin-dashboard-contaner-item-user {
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+.admin-dashboard-contaner-item-quilt {
+	left: 0;
+}
+.admin-dashboard-contaner-item-dashboard {
+	right: 0;
+}
+.admin-dashboard-contaner-item-quilt,
+.admin-dashboard-contaner-item-dashboard {
+	bottom: 0;
+}
+.admin-dashboard-contaner-item a {
+	padding: 0;
+	min-width: 100px;
+}
+.mat-grid-title-div .mat-icon {
+	margin: auto;
+	padding: 18px;
+	font-size: 64px;
+    height: 64px;
+	width: 64px;
+	color: #f1f1f1;
+	background-color: #52c7b8;
+	border-radius: 50%;
+}

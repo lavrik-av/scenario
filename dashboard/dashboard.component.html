@@ -1,0 +1,28 @@
+<div id="app-dashboard">
+    <div class="app-dashboard-container">
+        <div class="app-dashboard-container-icons-container">
+            <mat-grid-list id="dashboard" cols="2" gutterSize="8px">
+                <mat-grid-tile class="mat-icon-lg-">
+                    <div class="mat-grid-title-div" (click)="navigate('scenarios')">
+                        <mat-icon>view_list</mat-icon>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="mat-icon-lg-">
+                    <div class="mat-grid-title-div" (click)="navigate('user-profile')">
+                            <mat-icon>account_box</mat-icon>
+                        </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="mat-icon-lg-">
+                    <div class="mat-grid-title-div" (click)="navigate('about')">
+                        <mat-icon>info</mat-icon>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="mat-icon-lg-">
+                    <div class="mat-grid-title-div" (click)="navigate('admin-area')">
+                            <mat-icon>settings_applications</mat-icon>
+                        </div>
+                </mat-grid-tile>
+            </mat-grid-list>                    
+        </div>
+    </div>
+</div>

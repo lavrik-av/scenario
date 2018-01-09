@@ -1,0 +1,64 @@
+.sc-active-link {
+	color: #52c7b8;
+}
+.span-spacer {
+    flex: 1 1 auto;
+}
+.span-spacer-align-right {
+    text-align: right;
+}
+.span-spacer-app-title,
+.span-spacer-app-title-left
+{
+    font-weight: 400;
+}
+.span-spacer-app-title {
+    text-align: center;
+}
+.span-spacer-app-title-left {
+    text-align: left;
+}
+.span-spacer-action-buttons {
+    line-height: 20px;
+}
+.mat-icon-32 {
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+}
+.mat-icon.mat-icon-sc {
+    margin-right: 10px;
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+}
+.mat-toolbar {
+    z-index: 10;
+}
+.app-scnarios .mat-drawer-container {
+    background-color: #efefef;
+}
+/* sidenav */
+mat-sidenav {
+    width: 90vw;
+}
+.tab-actions-scr {
+    text-align: right;
+}
+/* sidenav */
+
+/* toolbar */
+.show-toolbar-menu-button {
+    display: none;
+}
+/* toolbar */
+
+.mat-fab.mat-icon-lg {
+    height: 96px;
+    width: 96px;
+}
+.mat-fab.mat-icon-lg .mat-button-wrapper {
+	padding: 0;
+    height: auto;
+    width: auto;
+}

@@ -1,0 +1,80 @@
+<div id="app-scenario-container" class="app-scenario-container">
+
+	<mat-card class="vh100">
+
+		<img matCardImage src="{{hostUrl}}{{scenario.image}}">
+
+		<mat-card-header>
+			<mat-card-title><h1  class="mat-headline">{{scenario.title}}</h1></mat-card-title>
+			<mat-card-subtitle align="end" *ngIf="scenario?.author">{{scenario.author}}, {{scenario.date}}</mat-card-subtitle>
+		</mat-card-header>
+
+		<mat-card-content>
+
+			<mat-expansion-panel class="mat-expansion-panel-no-shadow">
+					
+				<mat-expansion-panel-header>
+			
+					<mat-panel-title class="ellipsis-inline">
+						Description
+					</mat-panel-title>
+			
+				</mat-expansion-panel-header>
+			
+				<p>{{scenario.description}}</p>
+			
+			</mat-expansion-panel>			
+			
+		</mat-card-content>
+
+		<mat-card-actions align="start" class="uk-hidden">
+
+			<button mat-button (click)="onAction1">Action1</button>
+			
+		</mat-card-actions>
+
+		<mat-list *ngIf="scenario?.scenes">
+
+			<h3 mat-subheader>Scenes</h3>
+
+			<mat-list-item *ngFor="let scene of generateArray( scenario.scenes )" class="mat-divider">
+
+				<img *ngIf="scene?.image" matListAvatar class="mat-list-avatar-sqr" src="{{hostUrl}}{{scene.image}}" alt="{{scene.title}}">
+
+				<h3 matLine>{{scene.title}}</h3>
+
+				<p matLine>
+					<span *ngIf="scene?.frames" class="mat-line-value">frames:</span>
+					<span *ngIf="scene?.frames" class="mat-line-value">
+						{{ generateArray(scene?.frames).length }}						
+					</span>
+					<mat-icon class="mat-icon-32 sc-frames-view" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+				</p>
+
+				<button mat-icon-button class="uk-hidden">					
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item (click)="showFrames( scene.key )">
+						<mat-icon >visibility</mat-icon>
+						<span>View frames</span>
+					</button>
+					<button mat-menu-item (click)="addFrame( scene.key )">
+						<mat-icon>add</mat-icon>
+						<span>Add frame</span>
+					</button>
+				</mat-menu>				
+				
+			</mat-list-item>
+
+			<mat-divider></mat-divider>
+
+		</mat-list>			
+
+		<mat-card-footer>
+			&nbsp;
+		</mat-card-footer>
+
+	</mat-card>
+	
+</div>

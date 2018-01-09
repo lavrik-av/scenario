@@ -1,0 +1,72 @@
+<div class="app-user-profile-contaner">
+
+	<mat-card *ngIf="user" >
+			
+		<mat-card-header>
+			<mat-card-title><h1 class="mat-headline">&nbsp;<span *ngIf="false">User Info</span></h1></mat-card-title>
+			<mat-card-subtitle>{{user.id}}</mat-card-subtitle>
+		</mat-card-header>
+		
+		<img *ngIf="user?.image" matCardImage src="Card wide image source">
+
+		<mat-card-content>
+
+			<mat-list>
+				<mat-list-item>
+					{{ user.name }}
+				</mat-list-item>
+				<mat-list-item>
+						{{ user.email }}
+				</mat-list-item>
+			</mat-list>
+			
+		</mat-card-content>
+
+		<mat-card-actions align="end">
+				<button mat-raised-button (click)="logutUser()" color="primary">Logout</button>
+		</mat-card-actions>			
+
+		<mat-card-footer>
+		</mat-card-footer>
+
+	</mat-card>
+
+	<mat-card *ngIf="socialUser" class="vh100">
+
+		<mat-card-header>
+
+			<mat-card-title><h1 class="mat-headline">&nbsp;<span *ngIf="false">User Info</span></h1></mat-card-title>
+			<mat-card-subtitle>id of {{ socialUser.id }}</mat-card-subtitle>
+
+		</mat-card-header>
+
+		<div class="google-user-img-container">
+
+			<img matCardImage src="{{socialUser.photoUrl}}" class="google-user-img">
+
+		</div>
+		
+
+		<mat-card-content>
+
+			<mat-list>
+				<mat-list-item>
+					{{ socialUser.name }}
+				</mat-list-item>
+				<mat-list-item>
+						{{ socialUser.email }}
+				</mat-list-item>
+			</mat-list>
+
+		</mat-card-content>
+
+		<mat-card-actions align="end">
+			<button mat-raised-button (click)="logutGoogleUser()" color="primary">Logout</button>
+		</mat-card-actions>
+
+		<mat-card-footer>
+		</mat-card-footer>
+
+	</mat-card>			
+	
+</div>

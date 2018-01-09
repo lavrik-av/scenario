@@ -1,0 +1,11 @@
+#app-add-frame-container {
+	display: flex;
+	flex-direction: column;	
+}
+#app-add-frame-container form > * > * > *,
+#app-add-frame-container form > * > *,
+#app-add-frame-container form > * 
+{
+	width: 75%;
+}
+	

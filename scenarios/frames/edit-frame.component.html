@@ -1,0 +1,126 @@
+<div class="app-edit-frame-container">
+
+	<form [formGroup]="frameForm" (ngSubmit)="submit()">
+
+		<mat-card class="vh100">
+
+			<mat-card-header>
+					<mat-card-title>&nbsp;</mat-card-title>
+			</mat-card-header>
+						
+			<!--<img  matCardImage src="Card wide image source">-->
+
+			<mat-card-content>
+				
+				<mat-form-field class="full-width">
+				
+					<input matInput formControlName="title" id="title" required placeholder="Frame title" >
+				
+					<mat-hint *ngIf="!title?.errors" >Min length 3 characters, max length 32 characters</mat-hint>
+
+					<mat-error *ngIf="checkRequiredError('title')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkMinlengthError('title')">Title must be at least 3 characters long</mat-error>
+
+				</mat-form-field>
+
+				<div>&nbsp;</div>
+
+				<mat-form-field class="full-width">
+				
+					<textarea matInput formControlName="descr" id="descr" required placeholder="Frame description..."></textarea>
+				
+					<mat-error *ngIf="checkRequiredError('descr')">The field can't be empty</mat-error>
+					
+					<mat-error *ngIf="false"></mat-error>
+				
+				</mat-form-field>
+
+				<div>&nbsp;</div>
+				<div class="uk-text-bold color-primary">Camera Specifiaction</div>
+				<div class="divider-10"></div>
+				<mat-divider mat-inset></mat-divider>				
+				<div>&nbsp;</div>
+
+				<mat-form-field class="width-75">
+				
+					<input matInput formControlName="cameraAH" placeholder="Horizontal angle" required>
+
+					<mat-hint *ngIf="!cameraAH?.errors" >Digits only</mat-hint>					
+					<mat-error *ngIf="checkRequiredError('cameraAH')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkDigitsError('cameraAH')">Digits only</mat-error>
+					
+				</mat-form-field>
+
+				<div>&nbsp;</div>
+				
+				<mat-form-field class="width-75">
+				
+					<input matInput formControlName="cameraAV" placeholder="Vertical angle" required>
+
+					<mat-hint *ngIf="!cameraAV?.errors" >Digits only</mat-hint>					
+					<mat-error *ngIf="checkRequiredError('cameraAV')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkDigitsError('cameraAV')">Digits only</mat-error>
+					
+				</mat-form-field>
+
+				<div>&nbsp;</div>
+
+				<mat-form-field class="width-75">
+				
+					<input matInput formControlName="cameraAZ" placeholder="Deep angle" required>
+
+					<mat-hint *ngIf="!cameraAZ?.errors" >Digits only</mat-hint>					
+					<mat-error *ngIf="checkRequiredError('cameraAZ')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkDigitsError('cameraAZ')">Digits only</mat-error>
+					
+				</mat-form-field>
+
+				<div>&nbsp;</div>
+				
+				<div>&nbsp;</div>
+				<div class="uk-text-bold color-primary">Other</div>
+				<div class="divider-10"></div>
+				<mat-divider mat-inset></mat-divider>				
+				<div>&nbsp;</div>
+
+				<mat-form-field class="width-75">
+				
+					<input matInput formControlName="cameraDistance" placeholder="Distance" required>
+
+					<mat-hint *ngIf="!cameraDistance?.errors" >Digits only</mat-hint>
+					<mat-error *ngIf="checkRequiredError('cameraDistance')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkDigitsError('cameraDistance')">Digits only</mat-error>
+					
+				</mat-form-field>
+
+
+				<div>&nbsp;</div>
+
+				<mat-form-field class="width-75">
+				
+					<input matInput formControlName="cameraHeight" placeholder="Height" required>
+
+					<mat-hint *ngIf="!cameraHeight?.errors" >Digits only</mat-hint>					
+					<mat-error *ngIf="checkRequiredError('cameraHeight')">The field can't be empty</mat-error>
+					<mat-error *ngIf="checkDigitsError('cameraHeight')">Digits only</mat-error>
+					
+				</mat-form-field>
+
+			</mat-card-content>
+
+			<div>&nbsp;</div>
+
+			<mat-card-actions align="end">
+
+				<button mat-raised-button (click)="goBack()">Cancel</button>
+
+				<button mat-raised-button *ngIf="!frameForm.valid">Save</button>
+				<button mat-raised-button color="primary" type="submit" *ngIf="frameForm.valid">Save</button>
+
+			</mat-card-actions>
+
+		</mat-card>
+
+	</form>
+
+</div>

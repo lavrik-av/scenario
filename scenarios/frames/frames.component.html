@@ -1,0 +1,84 @@
+<div id="app-frames-container" class="app-frames-container">
+
+	<mat-card class="vh100">
+
+		<div class="mat-card-image-container">
+
+			<img matCardImage src="{{hostUrl}}{{scene.image}}">
+
+			<button id="app-add-frame-button" class="fab-mid-abs" mat-fab (click)="addFrame( scenarioKey, sceneKey )" color="accent">
+				<mat-icon>add</mat-icon>
+			</button>
+						
+		</div>
+
+		<mat-card-header>
+			<mat-card-title><h1 class="mat-headline  uk-margin-top-15">{{scene.title}}</h1></mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+
+			<mat-expansion-panel class="mat-expansion-panel-no-shadow">
+
+				<mat-expansion-panel-header>
+
+					<mat-panel-title>Description</mat-panel-title>
+
+				</mat-expansion-panel-header>
+
+				<p>{{scene.description}}</p>
+
+			</mat-expansion-panel>
+
+		</mat-card-content>
+
+		<mat-card-actions align="start" class="uk-hidden">
+			<button mat-button (click)="onAction1"></button>
+		</mat-card-actions>
+
+		<mat-list>
+				
+			<h2 mat-subheader class="mat-title">Frames</h2>
+			
+			<mat-list-item *ngFor="let frame of generateArray(frames)" class="mat-divider" [@myTrigger]="states[frame.key]" (@myTrigger.done)="animationDone($event)" >
+				
+				<img *ngIf="generateArray(frame?.images).length" matListAvatar class="mat-list-avatar-sqr" src="{{hostUrl}}{{generateArray(frame?.images)[0]}}" alt="{{frame.title}}">
+
+				<h3 matLine *ngIf="frame?.title">{{frame?.title}}</h3>	
+
+				<p matLine>
+					<mat-icon class="mat-icon-32 sc-frames-view" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+				</p>
+
+				<button mat-icon-button class="uk-hidden">					
+					<mat-icon>more_vert</mat-icon>
+				</button>
+				
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item (click)="viewFrame(frame.key)">
+						<mat-icon >visibility</mat-icon>
+						<span>View frame</span>
+					</button>
+					<button mat-menu-item (click)="editFrame(frame.key)">
+						<mat-icon >edit</mat-icon>
+						<span>Edit frame</span>
+					</button>
+					<button mat-menu-item (click)="removeFrame(frame.key)">
+						<mat-icon>delete</mat-icon>
+						<span>Remove frame</span>
+					</button>
+				</mat-menu>				
+	
+			</mat-list-item>
+
+			<mat-divider></mat-divider>
+			
+		</mat-list>
+						
+		<mat-card-footer>
+			&nbsp;
+		</mat-card-footer>
+	
+	</mat-card>
+
+</div>

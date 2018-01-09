@@ -1,0 +1,16 @@
+<div id="app-scenarios-container" class="app-scenarios-container">
+    
+    <mat-card *ngFor="let scenario of scenarios" class="uk-width-4-lg uk-width-2-md uk-width-1-sm">
+            <img matCardImage src="{{hostUrl}}{{scenario.image}}">
+            <mat-card-footer>
+                <mat-card-content>
+                    <mat-card-title (click)="showScenario( scenario.title )">{{scenario.title | ellipsis:16}}</mat-card-title>
+                    <mat-icon color="primary" class="mat-icon-32 mat-icon-visibility" (click)="showScenario( scenario.key )">visibility</mat-icon>
+                    <mat-icon color="primary" class="mat-icon-32 mat-icon-info" (click)="showInfo( scenario )">info</mat-icon>
+                </mat-card-content>
+            </mat-card-footer>
+        </mat-card>
+
+        <div class="clearfix"></div>
+            
+</div>

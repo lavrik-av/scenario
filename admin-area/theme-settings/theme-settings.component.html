@@ -1,0 +1,73 @@
+<div class="uk-hidden">
+	hostUrl
+		- localhost
+		- firebase
+		- one-off
+	theme 
+		- dark
+		- light
+</div>
+
+<div id="app-theme-settings-container">
+
+	<mat-card class="vh100">
+
+		<form ngForm="#settingsForm">
+			
+			<div>
+
+				<img matCardImage src="{{hostUrl}}/images/assets/theme-settings.jpg">
+
+			</div>
+
+			<mat-card-header>
+					<mat-card-title>&nbsp;</mat-card-title>
+			</mat-card-header>
+
+			<mat-card-content>
+		
+			<mat-list>
+					
+				<mat-list-item class="mat-divider">
+					
+					<span class="title-container span-spacer">
+						Red theme
+					</span>
+					<span class="control-container">
+						<span class="settings-value">Off&nbsp;</span>
+						<mat-slide-toggle area-label="Off" area-labelledby="On"
+							class="example-margin"
+							color="primary" #themeToggle [checked] = "darkTheme" (change)="changed( themeToggle.checked )">
+							<span class="settings-value">On</span>
+						</mat-slide-toggle>		
+
+					</span>
+
+				</mat-list-item>
+
+				<mat-list-item class="mat-divider">
+					
+					<span class="title-container span-spacer">
+						Host Url
+						<div class="settings-value">www.mysite4u.xyz</div>
+					</span>
+					<span class="control-container">						
+					</span>
+
+				</mat-list-item>
+
+				<mat-divider></mat-divider>
+				
+			</mat-list>
+
+			</mat-card-content>
+							
+			<mat-card-footer>
+				&nbsp;
+			</mat-card-footer>
+
+		</form>
+	
+	</mat-card>
+				
+</div>

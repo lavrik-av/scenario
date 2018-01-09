@@ -1,0 +1,104 @@
+<div id="app-add-frame-container">
+
+	<mat-card *ngIf="frame" class="vh100">
+
+		<mat-card-header>
+			<mat-card-title><h1 class="mat-headline">Add Frame</h1></mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content>
+			<form class="app-scenario-form" #addFrameForm >
+
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Frame title" name="title" [(ngModel)]="frame.title">
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<textarea matInput name="descr" placeholder="Frame description" [(ngModel)]="frame.descr" ></textarea>
+				</mat-form-field>
+				
+				<div class="mat-subheading-1 uk-text-bold">Frame images</div>
+
+				<div id="frame-images-container">
+
+					<mat-form-field *ngFor="let image of frame.images">
+						<input matInput type="text" placeholder="Path like /images/scenarios/..." value="{{image}}">
+						<mat-hint>frame image</mat-hint>
+					</mat-form-field>
+							
+				</div>
+				<div class="divider">&nbsp;</div>
+				<div id="frame-specs-container">
+					
+					<div class="uk-text-bold">Frame specs</div>
+
+					<div class="divider">&nbsp;</div>
+
+					<div id="frame-specs-camera-container">
+						<div class="">Camera</div>
+						<mat-form-field>
+							<span matPrefix>AH:&nbsp;</span>
+							<input matInput [(ngModel)]="frame.specs.camera.ah" name="frame.specs.camera.ah">
+							<mat-hint>Camera horizontal angle</mat-hint>
+						</mat-form-field>
+						<mat-form-field>
+							<span matPrefix>AV:&nbsp;</span>
+							<input matInput [(ngModel)]="frame.specs.camera.av" name="frame.specs.camera.av">
+							<mat-hint>Camera vertical angle</mat-hint>
+						</mat-form-field>
+						<mat-form-field>
+							<span matPrefix>AZ:&nbsp;</span>
+							<input matInput [(ngModel)]="frame.specs.camera.az" name="frame.specs.camera.az">
+							<mat-hint>Camera z-index angle</mat-hint>
+						</mat-form-field>
+					</div>
+
+					<div class="divider">&nbsp;</div>
+					
+					<div class="">Height</div>
+					<mat-form-field>
+						<input matInput placeholder="Camera height" [(ngModel)]="frame.specs.camera.height" name="frame.specs.camera.height">
+					</mat-form-field>					
+					
+					<div class="">Distance</div>
+					<mat-form-field>
+						<input matInput placeholder="Camera distance" [(ngModel)]="frame.specs.camera.distance" name="frame.specs.camera.distance">
+					</mat-form-field>					
+					
+					<div class="">Plot</div>
+					<mat-form-field>
+						<input matInput placeholder="Frame plot image path" [(ngModel)]="frame.specs.camera.plan" name="frame.specs.camera.plan">
+					</mat-form-field>					
+					
+				</div>
+
+				<table class="example-full-width uk-hidden" cellspacing="0"><tr>
+				<td><mat-form-field class="example-full-width">
+				<input matInput placeholder="City">
+				</mat-form-field></td>
+				<td><mat-form-field class="example-full-width">
+				<input matInput placeholder="State">
+				</mat-form-field></td>
+				<td><mat-form-field class="example-full-width">
+				<input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">
+				<mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+				</mat-form-field></td>
+				</tr></table>
+
+			</form>  
+				
+		</mat-card-content>
+
+		<mat-card-actions align="end">
+			<button mat-raised-button (click)="goBack()">Cancel</button>
+			<button mat-raised-button (click)="add()" color="primary">Add Frame</button>
+		</mat-card-actions>
+
+		<mat-card-footer>
+			&nbsp;
+		</mat-card-footer>
+
+	</mat-card>
+
+			
+</div>
